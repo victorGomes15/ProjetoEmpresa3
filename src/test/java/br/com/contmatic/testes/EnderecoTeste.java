@@ -43,43 +43,43 @@ public class EnderecoTeste {
 	@Test
 	public void nao_deve_aceitar_uma_rua_nula() {
 		endereco.setRua(null);
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_rua_vazia() {
 		endereco.setRua("");
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_rua_com_menos_de_4_caracteres() {
 		endereco.setRua("cas");
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void deve_aceitar_uma_rua_com_mais_de_4_caracteres() {
 		endereco.setRua("joao 12");
-		assertFalse(Validacao.validacoes(endereco));
+		assertTrue(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_rua_com_caracteres_especiais() {
 		endereco.setRua("J@nathan #");
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void deve_aceitar_um_numero_maior_que_0() {
 		endereco.setNumero(1);
-		assertFalse(Validacao.validacoes(endereco));
+		assertTrue(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_numero_igual_a_0() {
 		endereco.setNumero(0);
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test
@@ -90,13 +90,19 @@ public class EnderecoTeste {
 	@Test
 	public void deve_aceitar_um_complemento_maior_igual_a_0() {
 		endereco.setComplemento(40);
-		assertFalse(Validacao.validacoes(endereco));
+		assertTrue(Validacao.validacoes(endereco));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_complemento_menor_que_0() {
 		endereco.setComplemento(-1);
-		assertTrue(Validacao.validacoes(endereco));
+		assertFalse(Validacao.validacoes(endereco));
+	}
+
+	@Test
+	public void nao_deve_aceitar_um_complemento_maior_que_50() {
+		endereco.setComplemento(60);
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 }

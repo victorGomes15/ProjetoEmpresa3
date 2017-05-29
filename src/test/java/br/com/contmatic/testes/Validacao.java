@@ -19,14 +19,14 @@ public class Validacao {
 		Set<ConstraintViolation<Object>> constraintViolations = validator.validate(obj);
 
 		if (constraintViolations.size() == 0) {
-			return false;
+			return true;
 		}
 
 		for (ConstraintViolation<Object> constraintViolation : constraintViolations) {
 			System.err.println(constraintViolation.getMessage());
 		}
 
-		return true;
+		return false;
 	}
 
 }

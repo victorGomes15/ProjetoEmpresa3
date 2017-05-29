@@ -11,45 +11,95 @@ import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Telefone.
+ */
 public class Telefone {
 
+	/** The ddd. */
 	@NotNull(message = "Ddd não pode ser nulo")
 	@Min(value = 11, message = "Ddd minimo parte de {value}")
 	@Max(value = 99, message = "Ddd máximo igual a {value}")
 	private Integer ddd;
+
+	/** The numero. */
 	@NotBlank(message = "Número não pode ser nulo ou vazio")
 	@Pattern(regexp = RegexCampos.TELEFONE_FORMATO, message = "Telefone deve ter um número valido")
 	private String numero;
+
+	/** The tipo. */
 	@NotNull(message = "Tipo de telefone não pode ser nulo")
 	private TelefoneType tipo;
 
+	/**
+	 * Instantiates a new telefone.
+	 */
 	public Telefone() {
 	}
 
+	/**
+	 * Gets the ddd.
+	 *
+	 * @return the ddd
+	 */
 	public Integer getDdd() {
 		return ddd;
 	}
 
+	/**
+	 * Sets the ddd.
+	 *
+	 * @param ddd
+	 *            the new ddd
+	 */
 	public void setDdd(Integer ddd) {
 		this.ddd = ddd;
 	}
 
+	/**
+	 * Gets the numero.
+	 *
+	 * @return the numero
+	 */
 	public String getNumero() {
 		return numero;
 	}
 
+	/**
+	 * Sets the numero.
+	 *
+	 * @param numero
+	 *            the new numero
+	 */
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
+	/**
+	 * Gets the tipo.
+	 *
+	 * @return the tipo
+	 */
 	public TelefoneType getTipo() {
 		return tipo;
 	}
 
+	/**
+	 * Sets the tipo.
+	 *
+	 * @param tipo
+	 *            the new tipo
+	 */
 	public void setTipo(TelefoneType tipo) {
 		this.tipo = tipo;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Telefone)) {
@@ -62,15 +112,24 @@ public class Telefone {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(this.ddd).append(this.numero).append(this.tipo).toHashCode();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		new MultilineRecursiveToStringStyle();
-		return ToStringBuilder.reflectionToString(this, MultilineRecursiveToStringStyle.SHORT_PREFIX_STYLE);
+		return ToStringBuilder.reflectionToString(this, new MultilineRecursiveToStringStyle());
 
 	}
 }

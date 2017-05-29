@@ -10,7 +10,7 @@ public class GerenciadorTelefone {
 	private Set<Telefone> listaNumeros = new HashSet<>();
 
 	public void addTelefone(Telefone telefone) {
-		Preconditions.checkArgument(verificarTipoSeExiste(telefone), "Telefone já existente");
+		Preconditions.checkArgument(verificarTipoSeExiste(telefone), "Tipo de telefone já existente");
 		listaNumeros.add(telefone);
 	}
 

@@ -1,6 +1,5 @@
 package br.com.contmatic.empresa;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -11,6 +10,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -33,8 +33,7 @@ public class Endereco {
 	private Integer numero;
 
 	/** The complemento. */
-	@Min(value = 0, message = "Número para complemento deve parti de {value}")
-	@Max(value = 50, message = "Número máximo para complento é {value}")
+	@Range(min = 0, max = 50)
 	/** The complemento. */
 	private Integer complemento;
 

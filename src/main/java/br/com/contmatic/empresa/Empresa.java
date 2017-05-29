@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
@@ -31,20 +30,10 @@ public class Empresa {
 	@Pattern(regexp = RegexCampos.RAZAO_SOCIAL_FORMATO)
 	private String razaoSocial;
 
-	/** The endereco. */
-	private Set<Endereco> endereco;
-
-	/** The telefone. */
-	private Set<Telefone> telefone;
-
 	/** The dono. */
 	@NotBlank(message = "Dono não pode ser nulo ou vazio")
 	@Pattern(regexp = RegexCampos.DONO_FORMATO, message = "Dono tem que ter um nome valido")
 	private String dono;
-
-	/** The email. */
-	@NotNull(message = "Email não pode ser nulo")
-	private Email email;
 
 	/** The inscricao estadual. */
 	@NotBlank(message = "Inscrição estadual não pode ser nula ou vazia")
@@ -55,6 +44,16 @@ public class Empresa {
 	@NotBlank(message = "Nome da empresa não pode ser nulo ou vazio")
 	@Pattern(regexp = RegexCampos.NOME_BAIRRO_FORMATO)
 	private String nomeEmpresa;
+
+	/** The endereco. */
+	private Set<Endereco> endereco;
+
+	/** The telefone. */
+	private Set<Telefone> telefone;
+
+	/** The email. */
+	@NotNull(message = "Email não pode ser nulo")
+	private Email email;
 
 	/** The data criacao. */
 	@NotNull(message = "Data de criação não pode ser nula")
@@ -264,7 +263,7 @@ public class Empresa {
 	 */
 	@Override
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this, new MultilineRecursiveToStringStyle());
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 }
