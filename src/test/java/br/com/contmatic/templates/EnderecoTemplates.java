@@ -15,7 +15,7 @@ public class EnderecoTemplates implements TemplateLoader {
 			{
 				add("rua", random("Rua x", "Rua y", "Rua z"));
 				add("numero", random(Integer.class, range(1, 1000)));
-				add("complemento", random(Integer.class, range(0, 100)));
+				add("complemento", random(Integer.class, range(0, 50)));
 				add("estado", one(Estado.class, "estadoValido"));
 				add("tipoEndereco", random((Object[]) EnderecoType.values()));
 			}

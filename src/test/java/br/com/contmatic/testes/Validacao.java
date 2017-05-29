@@ -11,7 +11,7 @@ public class Validacao {
 
 	private static Validator validator;
 
-	public static boolean vaidacoes(Object obj) {
+	public static boolean validacoes(Object obj) {
 
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();

@@ -47,25 +47,25 @@ public class CidadeTeste {
 	@Test
 	public void nao_deve_aceitar_um_nome_nulo() {
 		cidade.setNome(null);
-		assertTrue(Validacao.vaidacoes(cidade));
+		assertTrue(Validacao.validacoes(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_nome_vazio() {
 		cidade.setNome("");
-		assertTrue(Validacao.vaidacoes(cidade));
+		assertTrue(Validacao.validacoes(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_nome_com_menos_de_3_caracteres() {
 		cidade.setNome("It");
-		assertTrue(Validacao.vaidacoes(cidade));
+		assertTrue(Validacao.validacoes(cidade));
 	}
 
 	@Test
 	public void deve_aceitar_um_nome_com_mais_de_2_caracteres() {
 		cidade.setNome("Itu");
-		assertFalse(Validacao.vaidacoes(cidade));
+		assertFalse(Validacao.validacoes(cidade));
 	}
 
 	@Test
@@ -77,13 +77,13 @@ public class CidadeTeste {
 	public void deve_aceitar_um_bairro_valido() {
 		bairro = Fixture.from(Bairro.class).gimme("bairroValido");
 		cidade.setBairro(bairro);
-		Assert.assertFalse(Validacao.vaidacoes(cidade));
+		Assert.assertFalse(Validacao.validacoes(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_bairro_invalido() {
 		cidade.setBairro(null);
-		Assert.assertTrue(Validacao.vaidacoes(cidade));
+		Assert.assertTrue(Validacao.validacoes(cidade));
 	}
 
 }

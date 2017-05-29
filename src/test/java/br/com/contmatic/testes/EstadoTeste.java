@@ -46,37 +46,37 @@ public class EstadoTeste {
 	@Test
 	public void nao_deve_aceitar_um_codigo_igual_a_0() {
 		estado.setCod(0);
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_uf_nula() {
 		estado.setUf(null);
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_uf_vazia() {
 		estado.setUf("");
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_uf_com_mais_de_2_caracteres() {
 		estado.setUf("paraiba");
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
 	public void nao_deve_aceitar_uma_uf_com_menos_de_2_caracteres() {
 		estado.setUf("u");
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
 	public void deve_aceitar_uma_uf_com_2_caracteres() {
 		estado.setUf("DF");
-		assertFalse(Validacao.vaidacoes(estado));
+		assertFalse(Validacao.validacoes(estado));
 	}
 
 	@Test
@@ -89,13 +89,13 @@ public class EstadoTeste {
 		cidade = Fixture.from(Cidade.class).gimme("cidadeValida");
 		cidade.setNome(null);
 		estado.setCidade(cidade);
-		assertTrue(Validacao.vaidacoes(estado.getCidade()));
+		assertTrue(Validacao.validacoes(estado.getCidade()));
 	}
 	
 	@Test
 	public void nao_deve_aceitar_uma_cidade_nula() {
 		estado.setCidade(cidade);
-		assertTrue(Validacao.vaidacoes(estado));
+		assertTrue(Validacao.validacoes(estado));
 	}
 
 	@Test
