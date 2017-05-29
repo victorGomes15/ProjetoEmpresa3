@@ -1,6 +1,5 @@
 package br.com.contmatic.empresa;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RegexCampos.
  */

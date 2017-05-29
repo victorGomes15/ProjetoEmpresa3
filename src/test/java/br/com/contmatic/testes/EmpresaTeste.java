@@ -9,9 +9,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runners.MethodSorters;
 
 import br.com.contmatic.empresa.Empresa;
@@ -51,9 +49,6 @@ public class EmpresaTeste {
 	public void finalizacao_Teste() {
 		System.out.println("Fim de teste");
 	}
-
-	@Rule
-	public ExpectedException expectedEx = ExpectedException.none();
 
 	@Test
 	public void deve_aceitar_um_cnpj_valido_de_14_digitos() {
@@ -198,6 +193,7 @@ public class EmpresaTeste {
 	@Test
 	public void deve_aceitar_uma_data_de_criacao() throws ParseException {
 		empresa.setDataCriacao(DateTime.now().plusDays(1));
+		System.out.println(empresa);
 		Assert.assertTrue(Validacao.validacoes(empresa));
 	}
 

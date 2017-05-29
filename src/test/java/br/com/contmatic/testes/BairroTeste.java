@@ -110,4 +110,10 @@ public class BairroTeste {
 		bairro.setCep("");
 		assertFalse(Validacao.validacoes(bairro));
 	}
+
+	@Test
+	public void printar_Objeto() {
+		System.out.println(bairro);
+	}
+
 }

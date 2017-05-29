@@ -98,26 +98,6 @@ public class TelefoneTeste {
 	}
 
 	@Test
-	public void nao_deve_aceitar_um_Tipo_vazio() {
-		String x = "";
-		telefone.setTipo(TelefoneType.valueOf(x));
-		Assert.assertFalse(Validacao.validacoes(telefone));
-	}
-
-	@Test
-	public void nao_deve_aceitar_um_Tipo_com_numero() {
-		String x = "fix4";
-		telefone.setTipo(TelefoneType.valueOf(x));
-	}
-
-	@Test
-	public void nao_deve_aceitar_um_Tipo_diferente_de_celular_ou_fixo() {
-		String x = "comercial";
-		telefone.setTipo(TelefoneType.valueOf(x));
-		Assert.assertFalse(Validacao.validacoes(telefone));
-	}
-
-	@Test
 	public void deve_aceitar_um_Tipo_que_seja_igual_celular_ou_fixo() {
 		String tipo = "CELULAR";
 		telefone.setTipo(TelefoneType.valueOf(tipo.toUpperCase()));

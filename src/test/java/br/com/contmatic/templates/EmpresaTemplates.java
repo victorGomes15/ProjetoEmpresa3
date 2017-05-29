@@ -17,7 +17,7 @@ public class EmpresaTemplates implements TemplateLoader {
 	public void load() {
 		Fixture.of(Empresa.class).addTemplate("empresaValida", new Rule() {
 			{
-				add("cnpj", regex(RegexCampos.CNPJ_FORMATO));
+				add("cnpj", cnpj());
 				add("dataCriacao", DateTime.now().plusDays(1));
 				add("dono", random("Joao", "Jose", "Pedro", "Luis"));
 				add("email", one(Email.class, "emailValido"));

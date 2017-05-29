@@ -13,7 +13,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Empresa.
  */
