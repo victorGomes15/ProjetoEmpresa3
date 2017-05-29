@@ -1,5 +1,6 @@
 package br.com.contmatic.empresa;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -30,6 +31,7 @@ public class Cidade {
 
 	/** The bairro. */
 	@NotNull(message = "Bairro nao pode ser nulo")
+	@Valid
 	private Bairro bairro;
 
 	/**
