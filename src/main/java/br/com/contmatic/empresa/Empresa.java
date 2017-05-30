@@ -42,7 +42,7 @@ public class Empresa {
 
 	/** The nome empresa. */
 	@NotBlank(message = "Nome da empresa não pode ser nulo ou vazio")
-	@Pattern(regexp = RegexCampos.NOME_BAIRRO_FORMATO)
+	@Pattern(regexp = RegexCampos.NOME_EMPRESA_FORMATO)
 	private String nomeEmpresa;
 
 	/** The endereco. */

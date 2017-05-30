@@ -1,6 +1,7 @@
 package br.com.contmatic.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,7 +9,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import br.com.contmatic.empresa.Estado;
 import br.com.contmatic.empresa.GerenciadorTelefone;
 import br.com.contmatic.empresa.Telefone;
 import br.com.six2six.fixturefactory.Fixture;
@@ -45,11 +45,12 @@ public class GerenciadorTelefoneTeste {
 	public void deve_aceitar_um_telefone_valido() {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneValido");
 		gereciador.addTelefone(telefone);
+		assertTrue(Validacao.validacoes(gereciador));
 	}
 
 	@Test
 	public void printar_objeto() {
-		System.out.println(gereciador);
+		System.out.println(gereciador.getListaNumeros());
 	}
 
 	@Test
@@ -57,6 +58,15 @@ public class GerenciadorTelefoneTeste {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneInvalido");
 		gereciador.addTelefone(telefone);
 		assertFalse(Validacao.validacoes(gereciador));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void nao_deve_aceitar_um_telefone_com_o_mesmo_tipo_já_existente() {
+		telefone = Fixture.from(Telefone.class).gimme("telefoneValido");
+		gereciador.addTelefone(telefone);
+		gereciador.addTelefone(telefone);
+		
+		
 	}
 
 }

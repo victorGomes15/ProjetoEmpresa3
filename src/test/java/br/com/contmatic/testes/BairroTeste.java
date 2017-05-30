@@ -32,6 +32,7 @@ public class BairroTeste {
 
 	@Before
 	public void criaObjt() {
+
 		bairro = Fixture.from(Bairro.class).gimme("bairroValido");
 		System.out.println("Começo de teste");
 	}

@@ -75,6 +75,7 @@ public class TelefoneTeste {
 
 	@Test
 	public void nao_deve_conter_mais_de_9_caracteres_no_numero() {
+		
 		telefone.setNumero("5825495210");
 		Assert.assertFalse(Validacao.validacoes(telefone));
 	}

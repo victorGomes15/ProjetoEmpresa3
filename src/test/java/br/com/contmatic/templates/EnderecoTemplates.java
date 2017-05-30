@@ -20,6 +20,16 @@ public class EnderecoTemplates implements TemplateLoader {
 				add("tipoEndereco", random((Object[]) EnderecoType.values()));
 			}
 		});
+
+		Fixture.of(Endereco.class).addTemplate("enderecoInvalido", new Rule() {
+			{
+				add("rua", random("Rua @", "Rua !", "Rua $"));
+				add("numero", 0);
+				add("complemento", -1);
+				add("estado", one(Estado.class, "estadoInvalido"));
+				add("tipoEndereco", random((Object[]) EnderecoType.values()));
+			}
+		});
 	}
 
 }

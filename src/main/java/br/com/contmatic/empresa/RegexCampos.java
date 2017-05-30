@@ -39,7 +39,7 @@ public final class RegexCampos {
 	public final static String NOME_CIDADE_FORMATO = "[A-Za-z0-9\\s]+";
 
 	/** The Constant NOME_EMPRESA_FORMATO. */
-	public final static String NOME_EMPRESA_FORMATO = "[A-Za-z0-9]{5,20}";
+	public final static String NOME_EMPRESA_FORMATO = "[A-Za-z0-9 \\s+]{5,20}";
 
 	/** The Constant DDD_MINIMO. */
 	public final static Integer DDD_MINIMO = 11;

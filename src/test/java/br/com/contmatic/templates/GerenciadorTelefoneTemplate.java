@@ -12,7 +12,7 @@ public class GerenciadorTelefoneTemplate implements TemplateLoader {
 	public void load() {
 		Fixture.of(GerenciadorTelefone.class).addTemplate("gerenciador", new Rule() {
 			{
-				add("listaNumeros", has(1).of(Telefone.class, "telefoneValido"));
+				add("listaNumeros", has(0).of(Telefone.class, "telefoneValido"));
 			}
 		});
 	}

@@ -1,6 +1,5 @@
 package br.com.contmatic.empresa;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -12,14 +11,15 @@ import com.google.common.base.Preconditions;
 
 public class GerenciadorTelefone {
 
-	private static Set<Telefone> listaNumeros = new HashSet<>();
+	@Valid
+	private Set<Telefone> listaNumeros;
 
 	public void addTelefone(@Valid Telefone telefone) {
 		Preconditions.checkArgument(verificarTipoSeExiste(telefone), "Tipo de telefone já existente");
 		listaNumeros.add(telefone);
 	}
 
-	private boolean verificarTipoSeExiste(Telefone telefone) {
+	private boolean verificarTipoSeExiste(@Valid Telefone telefone) {
 		for (Telefone tele : listaNumeros) {
 			if (tele.getTipo().getDescricao().equals(telefone.getTipo().getDescricao())) {
 				return false;
