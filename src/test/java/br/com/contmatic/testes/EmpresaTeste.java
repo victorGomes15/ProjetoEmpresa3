@@ -62,16 +62,6 @@ public class EmpresaTeste {
 	}
 
 	@Test
-	public void deve_aceitar_um_endereco_valido() {
-		endereco = Fixture.from(Endereco.class).gimme("enderecoValido");
-		gerenEndereco = Fixture.from(GerenciadorEnderecos.class).gimme("gerenciador");
-
-		gerenEndereco.adcEndereco(endereco);
-		empresa.setEndereco(gerenEndereco.getListaEndereco());
-		Assert.assertTrue(Validacao.validacoes(empresa));
-	}
-
-	@Test
 	public void nao_deve_aceitar_um_cnpj_menor_14_caracteres() {
 		empresa.setCnpj("1234567890123");
 		Assert.assertFalse(Validacao.validacoes(empresa));
@@ -87,6 +77,16 @@ public class EmpresaTeste {
 	public void nao_deve_aceitar_um_cnpj_nulo() {
 		empresa.setCnpj(null);
 		Assert.assertFalse(Validacao.validacoes(empresa));
+	}
+
+	@Test
+	public void deve_aceitar_um_endereco_valido() {
+		endereco = Fixture.from(Endereco.class).gimme("enderecoValido");
+		gerenEndereco = Fixture.from(GerenciadorEnderecos.class).gimme("gerenciador");
+
+		gerenEndereco.adcEndereco(endereco);
+		empresa.setEndereco(gerenEndereco.getListaEndereco());
+		Assert.assertTrue(Validacao.validacoes(empresa));
 	}
 
 	@Test
