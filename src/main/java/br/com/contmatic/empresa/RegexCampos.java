@@ -40,4 +40,10 @@ public final class RegexCampos {
 
 	/** The Constant NOME_EMPRESA_FORMATO. */
 	public final static String NOME_EMPRESA_FORMATO = "[A-Za-z0-9]{5,20}";
+
+	/** The Constant DDD_MINIMO. */
+	public final static Integer DDD_MINIMO = 11;
+
+	/** The Constant DDD_MAXIMO. */
+	public final static Integer DDD_MAXIMO = 99;
 }

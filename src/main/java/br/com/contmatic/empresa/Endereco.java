@@ -1,5 +1,6 @@
 package br.com.contmatic.empresa;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -38,7 +39,7 @@ public class Endereco {
 
 	/** The estado. */
 	@NotNull(message = "Estado não pode ser nulo")
-	/** The estado. */
+	@Valid
 	private Estado estado;
 
 	/** The tipo endereco. */

@@ -10,12 +10,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.contmatic.empresa.Endereco;
+import br.com.contmatic.empresa.Estado;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 
 public class EnderecoTeste {
 
 	private Endereco endereco;
+	private Estado estado;
 
 	@BeforeClass
 	public static void setUpClass() {
@@ -38,6 +40,19 @@ public class EnderecoTeste {
 	@After
 	public void finalizacao_Teste() {
 		System.out.println("Fim de teste");
+	}
+
+	@Test
+	public void nao_deve_aceitar_estado_nulo() {
+		endereco.setEstado(estado);
+		assertFalse(Validacao.validacoes(endereco));
+	}
+
+	@Test
+	public void nao_deve_aceitar_estado_invalido() {
+		estado = Fixture.from(Estado.class).gimme("estadoInvalido");
+		endereco.setEstado(estado);
+		assertFalse(Validacao.validacoes(endereco));
 	}
 
 	@Test

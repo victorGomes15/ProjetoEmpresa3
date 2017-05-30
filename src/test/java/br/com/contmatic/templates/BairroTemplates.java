@@ -18,6 +18,14 @@ public class BairroTemplates implements TemplateLoader {
 			}
 		});
 
+		Fixture.of(Bairro.class).addTemplate("bairroInvalido", new Rule() {
+			{
+				add("codigo", -1);
+				add("nomeBairro", random("Ib@@apuera", "::?? Redondo", "+-*#pe"));
+				add("cep", "0");
+			}
+		});
+
 	}
 
 }

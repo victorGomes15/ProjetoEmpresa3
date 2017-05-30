@@ -85,8 +85,7 @@ public class EstadoTeste {
 
 	@Test
 	public void nao_deve_aceitar_uma_cidade_invalida() {
-		cidade = Fixture.from(Cidade.class).gimme("cidadeValida");
-		cidade.setNome(null);
+		cidade = Fixture.from(Cidade.class).gimme("cidadeInvalida");
 		estado.setCidade(cidade);
 		assertFalse(Validacao.validacoes(estado.getCidade()));
 	}

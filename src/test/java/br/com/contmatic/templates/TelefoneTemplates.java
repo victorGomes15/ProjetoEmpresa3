@@ -20,6 +20,14 @@ public class TelefoneTemplates implements TemplateLoader {
 			}
 		});
 
+		Fixture.of(Telefone.class).addTemplate("telefoneInvalido", new Rule() {
+			{
+				add("ddd", 0);
+				add("tipo", random((Object[]) TelefoneType.values()));
+				add("numero", "9825495222");
+			}
+		});
+
 	}
 
 }

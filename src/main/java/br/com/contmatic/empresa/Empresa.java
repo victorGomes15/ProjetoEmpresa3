@@ -11,6 +11,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 import org.joda.time.DateTime;
 
 /**
@@ -58,6 +59,30 @@ public class Empresa {
 	@NotNull(message = "Data de criação não pode ser nula")
 	@Future(message = "Data de criação tem que ser data futura")
 	private DateTime dataCriacao;
+
+	/** The site empresa. */
+	@URL
+	@NotBlank
+	private String siteEmpresa;
+
+	/**
+	 * Gets the site empresa.
+	 *
+	 * @return the site empresa
+	 */
+	public String getSiteEmpresa() {
+		return siteEmpresa;
+	}
+
+	/**
+	 * Sets the site empresa.
+	 *
+	 * @param siteEmpresa
+	 *            the new site empresa
+	 */
+	public void setSiteEmpresa(String siteEmpresa) {
+		this.siteEmpresa = siteEmpresa;
+	}
 
 	/**
 	 * Instantiates a new empresa.
@@ -131,6 +156,12 @@ public class Empresa {
 		this.telefone = telefone;
 	}
 
+	/**
+	 * Sets the endereco.
+	 *
+	 * @param endereco
+	 *            the new endereco
+	 */
 	public void setEndereco(Set<Endereco> endereco) {
 		this.endereco = endereco;
 	}

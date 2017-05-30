@@ -81,8 +81,15 @@ public class CidadeTeste {
 	}
 
 	@Test
-	public void nao_deve_aceitar_um_bairro_invalido() {
+	public void nao_deve_aceitar_um_bairro_nulo() {
 		cidade.setBairro(null);
+		Assert.assertFalse(Validacao.validacoes(cidade));
+	}
+
+	@Test
+	public void nao_deve_aceitar_um_bairro_invalida() {
+		bairro = Fixture.from(Bairro.class).gimme("bairroInvalido");
+		cidade.setBairro(bairro);
 		Assert.assertFalse(Validacao.validacoes(cidade));
 	}
 

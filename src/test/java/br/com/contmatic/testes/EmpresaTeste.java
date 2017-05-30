@@ -1,5 +1,8 @@
 package br.com.contmatic.testes;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.text.ParseException;
 
 import org.joda.time.DateTime;
@@ -82,6 +85,18 @@ public class EmpresaTeste {
 	public void nao_deve_aceitar_um_cnpj_nulo() {
 		empresa.setCnpj(null);
 		Assert.assertFalse(Validacao.validacoes(empresa));
+	}
+
+	@Test
+	public void nao_deve_aceitar_site_invalido() {
+		empresa.setSiteEmpresa("empresa.com");
+		assertFalse(Validacao.validacoes(empresa));
+	}
+
+	@Test
+	public void deve_aceitar_site_valido() {
+		empresa.setSiteEmpresa("http://empresa.com");
+		assertTrue(Validacao.validacoes(empresa));
 	}
 
 	@Test

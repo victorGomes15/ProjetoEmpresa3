@@ -18,6 +18,14 @@ public class EstadoTemplates implements TemplateLoader {
 			}
 		});
 
+		Fixture.of(Estado.class).addTemplate("estadoInvalido", new Rule() {
+			{
+				add("cidade", one(Cidade.class, "cidadeInvalida"));
+				add("uf", random("S P", "R J", "M G"));
+				add("cod", 0);
+			}
+		});
+
 	}
 
 }
