@@ -26,7 +26,7 @@ public class EmpresaTemplates implements TemplateLoader {
 				add("nomeEmpresa", random("Car System", "Micrsoft", "Super casinha"));
 				add("razaoSocial", regex(RegexCampos.RAZAO_SOCIAL_FORMATO));
 				add("telefone", has(1).of(Telefone.class, "telefoneValido"));
-				add("siteEmpresa", "${nomeEmpresa}@hotmail.com");
+				add("siteEmpresa", "http://${nomeEmpresa}@hotmail.com");
 			}
 		});
 

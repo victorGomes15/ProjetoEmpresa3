@@ -29,6 +29,8 @@ public class EmpresaTeste {
 	private Empresa empresa;
 	private Telefone telefone;
 	private Endereco endereco;
+	private GerenciadorTelefone telef;
+	private GerenciadorEnderecos gerenEndereco;
 
 	@BeforeClass
 	public static void setUpClass() {
@@ -62,7 +64,7 @@ public class EmpresaTeste {
 	@Test
 	public void deve_aceitar_um_endereco_valido() {
 		endereco = Fixture.from(Endereco.class).gimme("enderecoValido");
-		GerenciadorEnderecos gerenEndereco = new GerenciadorEnderecos();
+		gerenEndereco = Fixture.from(GerenciadorEnderecos.class).gimme("gerenciador");
 
 		gerenEndereco.adcEndereco(endereco);
 		empresa.setEndereco(gerenEndereco.getListaEndereco());
@@ -173,7 +175,7 @@ public class EmpresaTeste {
 	@Test
 	public void deve_aceitar_telefone_valido() {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneValido");
-		GerenciadorTelefone telef = new GerenciadorTelefone();
+		telef = Fixture.from(GerenciadorTelefone.class).gimme("gerenciador");
 
 		telef.addTelefone(telefone);
 

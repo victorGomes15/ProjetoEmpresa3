@@ -1,6 +1,5 @@
 package br.com.contmatic.empresa;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -13,7 +12,7 @@ import com.google.common.base.Preconditions;
 public class GerenciadorEnderecos {
 
 	@Valid
-	private Set<Endereco> listaEndereco = new HashSet<>();
+	private Set<Endereco> listaEndereco;
 
 	public void adcEndereco(@Valid Endereco endereco) {
 		Preconditions.checkArgument(verificarTipoEndereco(endereco), "Tipo de endereço já existente");

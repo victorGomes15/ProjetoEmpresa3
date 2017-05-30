@@ -19,7 +19,7 @@ public class GerenciadorTelefone {
 		listaNumeros.add(telefone);
 	}
 
-	private boolean verificarTipoSeExiste(@Valid Telefone telefone) {
+	private boolean verificarTipoSeExiste(Telefone telefone) {
 		for (Telefone tele : listaNumeros) {
 			if (tele.getTipo().getDescricao().equals(telefone.getTipo().getDescricao())) {
 				return false;
