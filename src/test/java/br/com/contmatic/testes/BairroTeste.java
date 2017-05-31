@@ -39,7 +39,6 @@ public class BairroTeste {
 
 	@After
 	public void finalizacao_Teste() {
-		// System.out.println(bairro);
 		System.out.println("Fim de teste");
 	}
 
