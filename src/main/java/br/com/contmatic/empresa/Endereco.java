@@ -23,18 +23,17 @@ public class Endereco {
 	/** The rua. */
 	@NotBlank(message = "Nome da rua não pode ser vazia ou nula")
 	@Pattern(regexp = RegexCampos.RUA_FORMATO)
-	@Size(min = 4, max = 10)
+	@Size(min = RegexCampos.TAMANHO_RUA_MINIMO, max = RegexCampos.TAMANHO_RUA_MAXIMO)
 	private String rua;
 
 	/** The numero. */
 	@NotNull(message = "Número não pode ser nulo")
-	@Min(value = 1, message = "Número minimo parti de {value}")
+	@Min(value = RegexCampos.NUMERO_MINIMO_ENDERECO, message = "Número minimo parti de {value}")
 	/** The numero. */
 	private Integer numero;
 
 	/** The complemento. */
 	@Range(min = 0, max = 50)
-	/** The complemento. */
 	private Integer complemento;
 
 	/** The estado. */

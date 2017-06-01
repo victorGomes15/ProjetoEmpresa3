@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Cidade {
 
 	@NotNull(message = "Código não pode ser nulo")
-	@Min(value = 1, message = "Código da cidade parte de {value}")
+	@Min(value = RegexCampos.CODIGO_INICIAL_MINIMO, message = "Código da cidade parte de {value}")
 	/** The codigo. */
 	private Integer codigo;
 

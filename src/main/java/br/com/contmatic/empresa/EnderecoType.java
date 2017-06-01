@@ -6,8 +6,9 @@ package br.com.contmatic.empresa;
 public enum EnderecoType {
 
 	/** The comercial. */
-	COMERCIAL("Comercial"), /** The fiscal. */
- FISCAL("Fiscal");
+	COMERCIAL("Comercial"),
+	/** The fiscal. */
+	FISCAL("Fiscal");
 
 	/** The descricao. */
 	private String descricao;
@@ -15,7 +16,8 @@ public enum EnderecoType {
 	/**
 	 * Instantiates a new endereco type.
 	 *
-	 * @param descricao the descricao
+	 * @param descricao
+	 *            the descricao
 	 */
 	private EnderecoType(String descricao) {
 		this.descricao = descricao;

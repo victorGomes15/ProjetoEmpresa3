@@ -18,7 +18,7 @@ public class Bairro {
 
 	/** The codigo. */
 	@NotNull(message = "Código do bairro não pode ser nulo")
-	@Min(value = 1, message = "Código do bairro parte de {value}")
+	@Min(value = RegexCampos.CODIGO_INICIAL_MINIMO, message = "Código do bairro parte de {value}")
 	private Integer codigo;
 
 	/** The nome bairro. */

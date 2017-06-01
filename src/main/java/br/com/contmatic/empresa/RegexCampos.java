@@ -42,8 +42,27 @@ public final class RegexCampos {
 	public final static String NOME_EMPRESA_FORMATO = "[A-Za-z0-9 \\s+]{5,20}";
 
 	/** The Constant DDD_MINIMO. */
-	public final static Integer DDD_MINIMO = 11;
+	public final static int DDD_MINIMO = 11;
 
 	/** The Constant DDD_MAXIMO. */
-	public final static Integer DDD_MAXIMO = 99;
+	public final static int DDD_MAXIMO = 99;
+
+	/** The Constant TAMANHO_RUA_MINIMO. */
+	public final static int TAMANHO_RUA_MINIMO = 4;
+
+	/** The Constant TAMANHO_RUA_MAXIMO. */
+	public final static int TAMANHO_RUA_MAXIMO = 20;
+
+	/** The Constant NUMERO_MINIMO_ENDERECO. */
+	public final static int NUMERO_MINIMO_ENDERECO = 1;
+
+	/** The Constant NUMERO_MINIMO_COMPLEMENTO. */
+	public final static int NUMERO_MINIMO_COMPLEMENTO = 1;
+
+	/** The Constant NUMERO_MAXIMO_COMPLEMENTO. */
+	public final static int NUMERO_MAXIMO_COMPLEMENTO = 1;
+
+	/** The Constant CODIGO_INICIAL_MINIMO. */
+	public final static int CODIGO_INICIAL_MINIMO = 1;
+
 }

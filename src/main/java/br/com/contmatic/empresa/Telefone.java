@@ -18,8 +18,8 @@ public class Telefone {
 
 	/** The ddd. */
 	@NotNull(message = "Ddd não pode ser nulo")
-	@Min(value = 11, message = "Ddd minimo parte de {value}")
-	@Max(value = 99, message = "Ddd máximo igual a {value}")
+	@Min(value = RegexCampos.DDD_MINIMO, message = "Ddd minimo parte de {value}")
+	@Max(value = RegexCampos.DDD_MAXIMO, message = "Ddd máximo igual a {value}")
 	private Integer ddd;
 
 	/** The numero. */

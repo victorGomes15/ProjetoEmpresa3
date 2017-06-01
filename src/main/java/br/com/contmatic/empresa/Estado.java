@@ -19,7 +19,7 @@ public class Estado {
 
 	/** The cod. */
 	@NotNull(message = "Código do estado não pode ser nulo")
-	@Min(value = 1, message = "Código do estado veve ser maior ou igual a 1")
+	@Min(value = RegexCampos.CODIGO_INICIAL_MINIMO, message = "Código do estado veve ser maior ou igual a 1")
 	private Integer cod;
 
 	/** The uf. */
