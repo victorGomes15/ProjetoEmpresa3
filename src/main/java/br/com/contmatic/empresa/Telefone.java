@@ -32,12 +32,6 @@ public class Telefone {
 	private TelefoneType tipo;
 
 	/**
-	 * Instantiates a new telefone.
-	 */
-	public Telefone() {
-	}
-
-	/**
 	 * Gets the ddd.
 	 *
 	 * @return the ddd
