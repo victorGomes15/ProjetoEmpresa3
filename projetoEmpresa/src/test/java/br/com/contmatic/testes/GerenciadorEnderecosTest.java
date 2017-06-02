@@ -50,7 +50,7 @@ public class GerenciadorEnderecosTest {
 
 	@Test
 	public void deve_aceitar_um_endereco_valido() {
-		endereco = Fixture.from(Endereco.class).gimme("enderecoInvalido");
+		endereco = Fixture.from(Endereco.class).gimme("enderecoValido");
 		gerenciador.adcEndereco(endereco);
 		assertTrue(Validacao.validacoes(gerenciador));
 	}
