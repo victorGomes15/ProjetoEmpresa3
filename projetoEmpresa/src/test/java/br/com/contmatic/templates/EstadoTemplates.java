@@ -14,7 +14,7 @@ public class EstadoTemplates implements TemplateLoader {
 			{
 				add("cidade", one(Cidade.class, "cidadeValida"));
 				add("uf", random("SP", "RJ", "MG"));
-				add("cod", random(Integer.class, range(1, 100)));
+				add("codigo", random(Integer.class, range(1, 100)));
 			}
 		});
 
@@ -22,7 +22,7 @@ public class EstadoTemplates implements TemplateLoader {
 			{
 				add("cidade", one(Cidade.class, "cidadeInvalida"));
 				add("uf", random("S P", "R J", "M G"));
-				add("cod", 0);
+				add("codigo", 0);
 			}
 		});
 
