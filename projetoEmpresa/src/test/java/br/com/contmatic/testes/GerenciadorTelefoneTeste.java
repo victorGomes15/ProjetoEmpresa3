@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import br.com.contmatic.empresa.GerenciadorTelefone;
 import br.com.contmatic.empresa.Telefone;
+import br.com.contmatic.utils.Validacao;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 
@@ -45,7 +46,7 @@ public class GerenciadorTelefoneTeste {
 	public void deve_aceitar_um_telefone_valido() {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneValido");
 		gereciador.addTelefone(telefone);
-		assertTrue(Validacao.validacoes(gereciador));
+		assertTrue(Validacao.notContainsError(gereciador));
 	}
 
 	@Test
@@ -54,10 +55,10 @@ public class GerenciadorTelefoneTeste {
 	}
 
 	@Test
-	public void nao_deve_aceitar_um_telefone_invalida() {
+	public void nao_deve_aceitar_um_telefone_invalido() {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneInvalido");
 		gereciador.addTelefone(telefone);
-		assertFalse(Validacao.validacoes(gereciador));
+		assertFalse(Validacao.notContainsError(gereciador));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -65,8 +66,6 @@ public class GerenciadorTelefoneTeste {
 		telefone = Fixture.from(Telefone.class).gimme("telefoneValido");
 		gereciador.addTelefone(telefone);
 		gereciador.addTelefone(telefone);
-		
-		
 	}
 
 }

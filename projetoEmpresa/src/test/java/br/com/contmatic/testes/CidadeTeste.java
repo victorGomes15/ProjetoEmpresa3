@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import br.com.contmatic.empresa.Bairro;
 import br.com.contmatic.empresa.Cidade;
+import br.com.contmatic.utils.Validacao;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 
@@ -47,25 +48,25 @@ public class CidadeTeste {
 	@Test
 	public void nao_deve_aceitar_um_nome_nulo() {
 		cidade.setNome(null);
-		assertFalse(Validacao.validacoes(cidade));
+		assertFalse(Validacao.notContainsError(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_nome_vazio() {
 		cidade.setNome("");
-		assertFalse(Validacao.validacoes(cidade));
+		assertFalse(Validacao.notContainsError(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_nome_com_menos_de_3_caracteres() {
 		cidade.setNome("It");
-		assertFalse(Validacao.validacoes(cidade));
+		assertFalse(Validacao.notContainsError(cidade));
 	}
 
 	@Test
 	public void deve_aceitar_um_nome_com_mais_de_2_caracteres() {
 		cidade.setNome("Itu");
-		assertTrue(Validacao.validacoes(cidade));
+		assertTrue(Validacao.notContainsError(cidade));
 	}
 
 	@Test
@@ -77,20 +78,20 @@ public class CidadeTeste {
 	public void deve_aceitar_um_bairro_valido() {
 		bairro = Fixture.from(Bairro.class).gimme("bairroValido");
 		cidade.setBairro(bairro);
-		Assert.assertTrue(Validacao.validacoes(cidade));
+		Assert.assertTrue(Validacao.notContainsError(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_bairro_nulo() {
 		cidade.setBairro(null);
-		Assert.assertFalse(Validacao.validacoes(cidade));
+		Assert.assertFalse(Validacao.notContainsError(cidade));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_bairro_invalida() {
 		bairro = Fixture.from(Bairro.class).gimme("bairroInvalido");
 		cidade.setBairro(bairro);
-		Assert.assertFalse(Validacao.validacoes(cidade));
+		Assert.assertFalse(Validacao.notContainsError(cidade));
 	}
 
 }

@@ -12,6 +12,8 @@ import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 
+import br.com.contmatic.utils.RegexCampos;
+
 /**
  * The Class Estado.
  */
@@ -20,7 +22,7 @@ public class Estado {
 	/** The cod. */
 	@NotNull(message = "Código do estado não pode ser nulo")
 	@Min(value = RegexCampos.CODIGO_INICIAL_MINIMO, message = "Código do estado veve ser maior ou igual a 1")
-	private Integer cod;
+	private Integer codigo;
 
 	/** The uf. */
 	@NotBlank(message = "Unidade Federal não pode ser nula ou vazia")
@@ -44,8 +46,8 @@ public class Estado {
 	 *
 	 * @return the cod
 	 */
-	public Integer getCod() {
-		return cod;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
 	/**
@@ -54,8 +56,8 @@ public class Estado {
 	 * @param cod
 	 *            the new cod
 	 */
-	public void setCod(Integer cod) {
-		this.cod = cod;
+	public void setCodigo(Integer cod) {
+		this.codigo = cod;
 	}
 
 	/**
@@ -108,7 +110,7 @@ public class Estado {
 		}
 
 		Estado other = (Estado) obj;
-		return new EqualsBuilder().append(this.cod, other.cod).isEquals();
+		return new EqualsBuilder().append(this.codigo, other.codigo).isEquals();
 	}
 
 	/*
@@ -118,7 +120,7 @@ public class Estado {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.cod).hashCode();
+		return new HashCodeBuilder().append(this.codigo).hashCode();
 	}
 
 	/*

@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import br.com.contmatic.empresa.Endereco;
 import br.com.contmatic.empresa.GerenciadorEnderecos;
+import br.com.contmatic.utils.Validacao;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 
@@ -45,14 +46,14 @@ public class GerenciadorEnderecosTest {
 	public void nao_deve_aeitar_um_endereco_invalido() {
 		endereco = Fixture.from(Endereco.class).gimme("enderecoInvalido");
 		gerenciador.adcEndereco(endereco);
-		assertFalse(Validacao.validacoes(gerenciador));
+		assertFalse(Validacao.notContainsError(gerenciador));
 	}
 
 	@Test
 	public void deve_aceitar_um_endereco_valido() {
 		endereco = Fixture.from(Endereco.class).gimme("enderecoValido");
 		gerenciador.adcEndereco(endereco);
-		assertTrue(Validacao.validacoes(gerenciador));
+		assertTrue(Validacao.notContainsError(gerenciador));
 	}
 
 	@Test(expected = IllegalArgumentException.class)

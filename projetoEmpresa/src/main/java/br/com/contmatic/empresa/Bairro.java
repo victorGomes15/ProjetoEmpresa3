@@ -11,6 +11,8 @@ import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 
+import br.com.contmatic.utils.RegexCampos;
+
 /**
  * The Class Bairro.
  */
@@ -24,7 +26,7 @@ public class Bairro {
 	/** The nome bairro. */
 	@NotBlank(message = "Nome do bairro não pode ser nulo ou vazio")
 	@Pattern(regexp = RegexCampos.NOME_BAIRRO_FORMATO, message = "Nome do bairro não pode conter caracteres especiais")
-	@Size(min = 4, max = 20, message = "Tamanho minimo igual 4 e maximo igual a 20")
+	@Size(min = 4, max = 20, message = "Tamanho minimo igual {min} e maximo igual a {max}")
 	private String nomeBairro;
 
 	/** The cep. */

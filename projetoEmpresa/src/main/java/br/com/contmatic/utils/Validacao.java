@@ -1,4 +1,4 @@
-package br.com.contmatic.testes;
+package br.com.contmatic.utils;
 
 import java.util.Set;
 
@@ -7,11 +7,22 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+/**
+ * The Class Validacao.
+ */
 public class Validacao {
 
+	/** The validator. */
 	private static Validator validator;
 
-	public static boolean validacoes(Object obj) {
+	/**
+	 * Validacoes.
+	 *
+	 * @param obj
+	 *            the obj
+	 * @return true, if successful
+	 */
+	public static boolean notContainsError(Object obj) {
 
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();

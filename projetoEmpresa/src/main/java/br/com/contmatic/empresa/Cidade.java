@@ -12,6 +12,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import br.com.contmatic.utils.RegexCampos;
+
 /**
  * The Class Cidade.
  */

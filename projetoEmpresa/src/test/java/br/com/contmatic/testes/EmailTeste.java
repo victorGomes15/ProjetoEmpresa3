@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import br.com.contmatic.empresa.Email;
+import br.com.contmatic.utils.Validacao;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 
@@ -46,42 +47,42 @@ public class EmailTeste {
 	@Test
 	public void nao_deve_aceitar_um_endereco_de_email_nulo() {
 		email.setEnderecoEmail(null);
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_endereco_de_email_vazio() {
 		email.setEnderecoEmail("");
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_endereco_de_email_com_mais_de_1_arroba() {
 		email.setEnderecoEmail("vict@r@@hotmail.com");
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void deve_aceitar_um_email_com_1_arroba() {
-		Assert.assertTrue(Validacao.validacoes(email));
+		Assert.assertTrue(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_email_com_ponto_no_final() {
 		email.setEnderecoEmail("victor@gmail.com.");
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_email_que_esteja_vazio_antes_do_arroba() {
 		email.setEnderecoEmail("@gmail.com.br");
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 	@Test
 	public void nao_deve_aceitar_um_email_que_esteja_vazio_depois_do_arroba() {
 		email.setEnderecoEmail("jose@");
-		Assert.assertFalse(Validacao.validacoes(email));
+		Assert.assertFalse(Validacao.notContainsError(email));
 	}
 
 }

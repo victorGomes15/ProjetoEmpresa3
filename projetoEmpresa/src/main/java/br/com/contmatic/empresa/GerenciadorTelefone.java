@@ -21,7 +21,8 @@ public class GerenciadorTelefone {
 	/**
 	 * Adds the telefone.
 	 *
-	 * @param telefone the telefone
+	 * @param telefone
+	 *            the telefone
 	 */
 	public void addTelefone(@Valid Telefone telefone) {
 		Preconditions.checkArgument(verificarTipoSeExiste(telefone), "Tipo de telefone já existente");
@@ -31,10 +32,11 @@ public class GerenciadorTelefone {
 	/**
 	 * Verificar tipo se existe.
 	 *
-	 * @param telefone the telefone
+	 * @param telefone
+	 *            the telefone
 	 * @return true, if successful
 	 */
-	private boolean verificarTipoSeExiste( Telefone telefone) {
+	private boolean verificarTipoSeExiste(Telefone telefone) {
 		for (Telefone tele : listaNumeros) {
 			if (tele.getTipo().getDescricao().equals(telefone.getTipo().getDescricao())) {
 				return false;
@@ -52,7 +54,9 @@ public class GerenciadorTelefone {
 		return listaNumeros;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
