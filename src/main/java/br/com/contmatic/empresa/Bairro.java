@@ -58,6 +58,7 @@ public class Bairro {
 	 * @return the nome bairro
 	 */
 	public String getNomeBairro() {
+		this.getNomeBairro().contains("abc");
 		return nomeBairro;
 	}
 
